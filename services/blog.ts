@@ -1,5 +1,5 @@
 import { ContentfulClientApi, createClient } from "contentful";
-import { Author, HeroImage, BlogPost } from "./blog.types";
+import { Author, ImagePreview, BlogPost } from "./blog.types";
 import moment from "moment";
 
 export class BlogApi {
@@ -7,16 +7,15 @@ export class BlogApi {
 
   constructor() {
     this.client = createClient({
-      space: "9lk5dcgffszt",
-      accessToken: "Q_89doAVg1Ej_uofqMv3mYl75ymOijDnwHhPT05Plt4"
+      space: process.env.CONTENTFUL_SPACE_ID,
+      accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
     });
   }
 
-  convertImage = (rawImage): HeroImage => {
+  convertImage = (rawImage): ImagePreview => {
     if (rawImage) {
       return {
         imageUrl: rawImage.file.url.replace("//", "http://"), // may need to put null check as well here
-        description: rawImage.description,
         title: rawImage.title
       };
     }
@@ -42,8 +41,8 @@ export class BlogApi {
 
   convertPost = (rawData): BlogPost => {
     const rawPost = rawData.fields;
-    const rawHeroImage = rawPost.heroImage ? rawPost.heroImage.fields : null;
-    const rawAuthor = rawPost.author ? rawPost.author.fields : null;
+    const rawImagePreview = rawPost.imagePreview ? rawPost.imagePreview.fields : null;
+    // const rawAuthor = rawPost.author ? rawPost.author.fields : null;
     return {
       id: rawData.sys.id,
       body: rawPost.body,
@@ -52,8 +51,7 @@ export class BlogApi {
       slug: rawPost.slug,
       tags: rawPost.tags,
       title: rawPost.title,
-      heroImage: this.convertImage(rawHeroImage),
-      author: this.convertAuthor(rawAuthor),
+      imagePreview: this.convertImage(rawImagePreview),
       metaTitle: rawPost.metaTitle,
       metaDescription: rawPost.metaDescription,
       metaImage: rawPost.metaImage

@@ -41,21 +41,12 @@ export const BlogBox = (props: BlogBoxProps) => {
           </a>
         </Link>
         <div className="card__info">
-          {props.tags && props.tags.length > 0 && (
-            <span className="card__category">{props.tags[0]}</span>
-          )}
 
           <Link href="/blog/[slug]" as={`/blog/${props.slug}`} passHref>
             <a style={{ color: "#000", textDecoration: "none" }}>
               <h3 className="card__title">{props.title}</h3>
             </a>
           </Link>
-          <span className="card__by">
-            by{" "}
-            <a href="#" className="card__author" title="author">
-              {props.author}
-            </a>
-          </span>
         </div>
 
         <div className="card__info-hover">

@@ -10,21 +10,20 @@ export type Author = {
   github: string;
 };
 
-export type HeroImage = {
+export type ImagePreview = {
   imageUrl: string;
-  description: string;
   title: string;
 };
 
 export type BlogPost = {
   id: string;
-  body: string;
+  body: any;
   description: string;
   publishedDate: string;
   slug: string;
   tags: Array<string>;
   title: string;
-  heroImage?: HeroImage;
+  imagePreview: ImagePreview;
   author?: Author;
   metaTitle: string;
   metaDescription: string;

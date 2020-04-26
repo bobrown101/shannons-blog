@@ -16,14 +16,15 @@ export default class BlogPage extends React.Component<BlogPageProps> {
 
   renderBlogList = entries =>
     entries.map((entry, i) => {
+      console.log(entry)
       return (
         <BlogBox
           key={i}
           id={entry.id}
           slug={entry.slug}
-          imageUrl={entry.heroImage.imageUrl}
+          imageUrl={entry.imagePreview.imageUrl}
           title={entry.title}
-          author={entry.author.name}
+          author={entry.author?.name}
           description={entry.description}
           tags={entry.tags}
         />
