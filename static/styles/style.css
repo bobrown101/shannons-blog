@@ -2,8 +2,8 @@
 @import url('https://unpkg.com/css-aspect-ratio@1/css-aspect-ratio.css');
 
 :root {
-  --color-bug: #f35e5e;
-  --color-text: #f35e5e;
+  --color-bug: #43ad6c;
+  --color-text: #43ad6c;
 }
 
 html {
@@ -23,25 +23,6 @@ body {
   margin-bottom: 60px;
 }
 
-.btn-tomato,
-.btn-outline-dark {
-  border-radius: 16px;
-  display: inline-block;
-  padding: 7px 15px;
-  font-size: 13px;
-  color: #ffffff;
-  background-color: #f35e5e;
-}
-.btn-tomato:hover,
-.btn-outline-dark:hover {
-  color: #ffffff;
-}
-.btn-tomato.btn-lg,
-.btn-lg.btn-outline-dark {
-  height: 48px;
-  border-radius: 24px;
-  min-width: 160px;
-}
 
 /*----------------------------Custom-Error-Page-Css----------------------------*/
 

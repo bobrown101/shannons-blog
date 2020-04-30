@@ -2,6 +2,7 @@ import App from "next/app";
 import Router from "next/router";
 import NProgress from "nprogress";
 import { DefaultSeo } from "next-seo";
+import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 
 const DEFAULT_SEO = {
   title: "Blog Tutorial Web",

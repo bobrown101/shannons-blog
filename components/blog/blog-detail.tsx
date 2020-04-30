@@ -1,9 +1,7 @@
 import React from "react";
 import { BlogPost } from "services";
 import styled from "styled-components";
-// import ReactMarkdown from "react-markdown";
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 const Image = styled.img`
   width: 80%;
@@ -17,8 +15,6 @@ type BlogDetailProps = {
 
 export const BlogDetail = (props: BlogDetailProps) => {
   const { post } = props;
-  debugger;
-  console.log(props)
   const mainTag = post.tags && post.tags.length > 0 ? post.tags[0] : "";
   return (
     <article className="post-full post">

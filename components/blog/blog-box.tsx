@@ -1,5 +1,5 @@
 import React from "react";
-import "./style.css";
+import { Card, Tag } from "antd";
 import styled from "styled-components";
 import Link from "next/link";
 
@@ -8,7 +8,14 @@ type ImageContainerProps = {
 };
 
 const ImageContainer = styled.div<ImageContainerProps>`
-  background-image: ${props => `url(${props.imageUrl})`};
+  background-image: ${(props) => `url(${props.imageUrl})`};
+  height: 10rem;
+  width: 100%;
+  background-size: cover;
+`;
+
+const BlogContaier = styled.article`
+  margin: 1rem;
 `;
 
 const defaultProps = {
@@ -16,7 +23,7 @@ const defaultProps = {
   description: "",
   publishedDate: "",
   readingTime: "",
-  className: ""
+  className: "",
 };
 
 type BlogBoxProps = {
@@ -24,36 +31,55 @@ type BlogBoxProps = {
   slug: string;
   imageUrl: string;
   title: string;
-  tags?: Array<string>;
+  tags?: Array<{
+    fields: {
+      name: string
+    }
+  }>;
 } & typeof defaultProps;
 
 export const BlogBox = (props: BlogBoxProps) => {
+
   return (
-    <div className={`col-lg-4 ${props.className} mt-3`}>
-      <article className="card">
-        <ImageContainer imageUrl={props.imageUrl} className="card__img" />
-        <Link href="/blog/[slug]" as={`/blog/${props.slug}`} passHref>
-          <a className="card_link">
-            <ImageContainer
-              imageUrl={props.imageUrl}
-              className="card__img--hover"
+    <BlogContaier>
+      <Link href="/blog/[slug]" as={`/blog/${props.slug}`} passHref>
+        <a className="card_link">
+          <Card
+            hoverable
+            style={{ width: 240 }}
+            cover={
+              <ImageContainer imageUrl={props.imageUrl} />
+            }
+          >
+            <Card.Meta
+              title={props.title}
+              description={props.description}
             />
-          </a>
-        </Link>
-        <div className="card__info">
+            <br />
+            {props.tags && props.tags.map(tag => {
+              return <Tag>{tag.fields.name}</Tag>
+            })}
+          </Card>
+        </a>
+      </Link>
+    </BlogContaier>
+    // <div className={`col-lg-4 ${props.className} mt-3`}>
+    //   <article className="card">
 
-          <Link href="/blog/[slug]" as={`/blog/${props.slug}`} passHref>
-            <a style={{ color: "#000", textDecoration: "none" }}>
-              <h3 className="card__title">{props.title}</h3>
-            </a>
-          </Link>
-        </div>
+    //     <div className="card__info">
 
-        <div className="card__info-hover">
-          <div className="card__description">{props.description}</div>
-        </div>
-      </article>
-    </div>
+    //       <Link href="/blog/[slug]" as={`/blog/${props.slug}`} passHref>
+    //         <a style={{ color: "#000", textDecoration: "none" }}>
+    //           <h3 className="card__title">{props.title}</h3>
+    //         </a>
+    //       </Link>
+    //     </div>
+
+    //     <div className="card__info-hover">
+    //       <div className="card__description">{props.description}</div>
+    //     </div>
+    //   </article>
+    // </div>
   );
 };
 

@@ -1,6 +1,6 @@
 import React from "react";
 import { ErrorBoundary } from "../error-boundary";
-import { Header, Footer } from "components/layout";
+import { Header } from "components/layout";
 
 export const Layout = props => {
   return (
@@ -9,7 +9,7 @@ export const Layout = props => {
       <ErrorBoundary>
         <main className="container mt-3">{props.children}</main>
       </ErrorBoundary>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };
