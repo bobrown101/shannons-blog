@@ -4,14 +4,14 @@ import NProgress from "nprogress";
 import { DefaultSeo } from "next-seo";
 
 const DEFAULT_SEO = {
-  title: "Blog Tutorial Web",
-  description: "Awesome blog tutorial website",
+  title: "Shannon Moran",
+  description: "Shannon Moran's Blog",
   openGraph: {
     type: "website",
     locale: "en",
-    title: "Blog Tutorial website",
-    description: "Awesome blog tutorial website",
-    site_name: "BlogTutorial"
+    title: "Shannon Moran",
+    description: "Shannon's blog for all things Shannon",
+    site_name: "ShannonMoran"
   }
 };
 
