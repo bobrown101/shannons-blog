@@ -15,13 +15,19 @@ export type ImagePreview = {
   title: string;
 };
 
+export type Tag = {
+  fields: {
+    name: string
+  }
+}
+
 export type BlogPost = {
   id: string;
   body: any;
   description: string;
   publishedDate: string;
   slug: string;
-  tags: Array<string>;
+  tags: Array<Tag>;
   title: string;
   imagePreview: ImagePreview;
   author?: Author;

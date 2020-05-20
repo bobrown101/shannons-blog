@@ -9,7 +9,6 @@ export const Layout = props => {
       <ErrorBoundary>
         <main className="container mt-3">{props.children}</main>
       </ErrorBoundary>
-      {/* <Footer /> */}
     </>
   );
 };

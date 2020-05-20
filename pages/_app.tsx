@@ -2,7 +2,6 @@ import App from "next/app";
 import Router from "next/router";
 import NProgress from "nprogress";
 import { DefaultSeo } from "next-seo";
-import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 
 const DEFAULT_SEO = {
   title: "Blog Tutorial Web",
@@ -41,7 +40,7 @@ export default class CustomApp extends App {
     return (
       <>
         <DefaultSeo {...DEFAULT_SEO} />
-        <Component {...pageProps} />;
+        <Component {...pageProps} />
       </>
     );
   }

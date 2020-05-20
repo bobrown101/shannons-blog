@@ -14,9 +14,9 @@ export default class BlogPage extends React.Component<BlogPageProps> {
     return { entries };
   }
 
-  renderBlogList = entries =>
+  renderBlogList = (entries) =>
     entries.map((entry, i) => {
-      console.log(entry)
+      console.log(entry);
       return (
         <BlogBox
           key={i}
@@ -36,10 +36,8 @@ export default class BlogPage extends React.Component<BlogPageProps> {
     return (
       <Layout>
         <h1>Blog</h1>
-        <div className="row mt-3">
-          {entries.length > 0 && this.renderBlogList(entries)}
-          {entries.length == 0 && <div>Loading...</div>}
-        </div>
+        {entries.length > 0 && this.renderBlogList(entries)}
+        {entries.length == 0 && <div>Loading...</div>}
       </Layout>
     );
   }

@@ -9,9 +9,11 @@
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^13.4.0",
     "@contentful/rich-text-types": "^14.1.0",
+    "@types/reactstrap": "^8.4.2",
     "@zeit/next-css": "1.0.1",
     "antd": "^4.2.0",
     "apisauce": "^1.1.1",
+    "bootstrap": "^4.5.0",
     "contentful": "^7.10.0",
     "isomorphic-unfetch": "^3.0.0",
     "moment": "^2.24.0",
@@ -21,7 +23,7 @@
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-markdown": "^4.2.2",
-    "reactstrap": "^8.0.1",
+    "reactstrap": "^8.4.1",
     "styled-components": "^5.1.0"
   },
   "devDependencies": {
